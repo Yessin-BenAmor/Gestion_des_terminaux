@@ -1,0 +1,86 @@
+<app-header></app-header>
+
+<section id="portfolio" class="portfolio">
+  <div class="container">
+    <div class="section-title">
+      <br>
+      <br>
+      <h2 style="margin-top: 1cm; text-transform: capitalize;">Terminal's Types</h2>
+    </div>
+
+    <!-- Form -->
+    <div class="form-container" style="margin-bottom: 1cm;">
+      <h2>{{header}}</h2>
+      <form [formGroup]="TerminalTypesListForm" (ngSubmit)="TerminalTypeSubmit()">
+        <div class="mb-3">
+          <label for="terminalType" class="form-label">Terminal Type Name</label>
+          <input style="width: auto;" type="text" id="terminalType" formControlName="terminalType" class="form-control">
+        </div>
+        <button type="submit" class="btn btn-primary">{{button}}</button>
+      </form>
+    </div>
+
+    <!-- Table -->
+    <div class="form-container" style="margin-bottom: 1cm; width: 60%; margin: 0 auto;">
+      <h2 style="text-align: center;">List of Terminal Types</h2>
+      <table class="table table-hover" style="width: 100%;">
+        <thead>
+          <tr>
+            <th scope="col">Terminal Type</th>
+            <th style="width: 10%;" scope="col"></th>
+            <th style="width: 10%;" scope="col"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of terminalTypesOptions">
+            <td style="vertical-align: middle;">{{ item.terminalType }}</td>
+            <td style="vertical-align: middle;">
+              <button (click)="openDialog(item.id_terminalType)" class="btn">
+                <img style="width: 25px;" src="../../assets/img/delete.png">
+              </button>
+            </td>
+            <td style="vertical-align: middle;">
+              <button (click)="passTerminalType(item.id_terminalType)" type="button" class="btn">
+                <img style="width: 25px;" src="../../assets/img/modify.png">
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<style>
+  .form-container {
+    background-color: #f8f9fa;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+  }
+
+  .form-container .form-control {
+    margin-bottom: 10px;
+  }
+
+  .table {
+    margin-top: 20px;
+  }
+
+  h1 {
+    font-size: 2em;  
+    color: #333;    
+    font-weight: bold;  
+    text-align: center; 
+    margin: 0.67em 0; 
+  }
+
+  #searchInput {
+    margin-bottom: 10px;
+    width: 18%;
+    padding: 10px;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+  }
+</style>

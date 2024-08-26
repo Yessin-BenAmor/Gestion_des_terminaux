@@ -1,0 +1,134 @@
+
+<!-- ======= Header ======= -->
+ <app-header></app-header>
+
+
+
+
+
+  <section id="portfolio" class="portfolio">
+    <div class="container">
+      <div class="section-title">
+        <br>
+        <br>
+        <h2 style="margin-top: 1cm;text-transform: capitalize">Terminal's List    </h2>
+
+ 
+       </div>
+  
+<!-- Form -->
+<div class="form-container" style="margin-bottom: 1cm;">
+    <h2>{{header}}</h2>
+    <form [formGroup]="terminalTypeForm" (ngSubmit)="OnTerminalTypeSubmit()">
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col"></th>
+            <th scope="col" style="width: 15%;">Terminal Type </th>
+            <th scope="col" style="width: 15%;">Serial Number</th>
+            <th scope="col" style="width: 10%;">Profile</th>
+            <th scope="col">TID</th>
+            <th scope="col">DB</th>
+            <th scope="col" style="width: 20%;">Comment</th>
+            <th scope="col">WiFi MAC Address</th>
+            <th scope="col" style="width: 5%;"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td></td>
+            <td ><select formControlName="terminalType" class="custom-select"   >
+              <option *ngFor="let option of terminalTypesOptions" [value]="option.terminalType">{{ option.terminalType }}</option>
+            </select></td>
+             <td><input type="text" formControlName="serialNumber" class="form-control"></td>
+            <td><input type="text" formControlName="profile" class="form-control"></td>
+            <td><input type="text" formControlName="TID" class="form-control"></td>
+            <td><input type="text" formControlName="DB" class="form-control"></td>
+            <td><input type="text" formControlName="comment" class="form-control"></td>
+            <td><input type="text" formControlName="wifiMacAddress" class="form-control"></td>
+            <td><button type="submit" class="btn btn-primary">{{button}}</button></td>
+          </tr>
+        </tbody>
+      </table>
+    </form>
+  </div>
+  
+  <!-- Table -->
+  <div class="form-container" style="margin-bottom: 1cm;">
+    <h2>List of terminals</h2>
+    <table class="table table-hover">
+      <thead>
+ 
+        <tr>
+           <th scope="col">Terminal Type</th>
+          <th scope="col">Serial Number</th>
+          <th scope="col">Profile</th>
+          <th scope="col" style="width: 15%;" >TID</th>
+          <th scope="col"  >DB</th>
+          <th scope="col" style="width: 10%;">Comment</th>
+          <th scope="col" >WiFi MAC Address</th>
+          <th scope="col" ></th>
+              <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of terminalOptions">
+           <td style="vertical-align: middle;">{{ item.terminalType }}</td>
+          <td style="vertical-align: middle;">{{ item.serialNumber }}</td>
+          <td style="vertical-align: middle;">{{ item.profile }}</td>
+          <td style="vertical-align: middle;">{{ item.TID }}</td>
+          <td style="vertical-align: middle;">{{ item.DB }}</td>
+       
+          <td style="vertical-align: middle;">{{ item.comment }}</td>
+          <td style="vertical-align: middle;">{{ item.wifiMacAddress }}</td>
+          <td style="vertical-align: middle; width: 5%;">
+            <button (click)="openDialog(item.id_terminal)" class="btn">
+              <img style="width: 25px;" src="../../assets/img/delete.png">
+            </button>
+          </td>
+          <td style="vertical-align: middle; width: 5%;">
+            <button  (click)="passTerminal(item.id_terminal)" type="button" class="btn">
+              <img style="width: 25px;" src="../../assets/img/modify.png">
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  
+
+
+  
+<style>
+    .form-container {
+      background-color: #f8f9fa;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      margin-bottom: 20px;
+    }
+  
+    .form-container .form-control {
+      margin-bottom: 10px;
+    }
+  
+    .table {
+      margin-top: 20px;
+    }
+    h1 {
+      /* Add your styles here */
+      font-size: 2em; /* Example: Font size */
+      color: #333;    /* Example: Text color */
+      font-weight: bold; /* Example: Font weight */
+      text-align: center; /* Example: Text alignment */
+      margin: 0.67em 0; /* Example: Margin */
+    }
+    #searchInput {
+      margin-bottom: 10px;
+      width: 18%;
+      padding: 10px;
+      border: 1px solid #ced4da;
+      border-radius: 4px;
+    }
+  </style>
+  

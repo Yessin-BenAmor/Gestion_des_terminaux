@@ -1,0 +1,234 @@
+<!-- sign-in.component.html -->
+<!-- ======= Header ======= -->
+ <app-header></app-header>
+<section id="portfolio" class="portfolio">
+  <div class="container">
+    <div class="section-title">
+      <h2 style="margin-top: 1cm;text-transform: capitalize">Welcome Back {{username}}  ! </h2>
+      <p>Find below the updated list of all available Tetra TIDs.</p>
+    </div>
+
+
+
+
+
+
+    <!-- Form -->
+    <div class="form-container" style="margin-bottom: 1cm;">
+      <h2>{{header}}</h2>
+      <form [formGroup]="tidForm" (ngSubmit)="onSubmit()">
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col"></th>
+              <th scope="col" style="width: 25%;"></th>
+              <th scope="col" style="width: 15%;"> </th>
+              <th scope="col"></th>
+              <th scope="col">GEM </th>
+              <th scope="col"></th>
+              <th scope="col" style="width: 20%;"></th>
+              <th scope="col" colspan="3">DCC</th>
+              <th scope="col" colspan="3">UPI</th>
+              <th scope="col"></th>
+            </tr>
+            <tr>
+              <th scope="col"></th>
+              <th scope="col" style="width: 25%;">TID</th>
+
+              <th scope="col" style="width: 15%;">Sponsor</th>
+              <th scope="col">Test</th>
+              <th scope="col">Auto</th>
+              <th scope="col">UT4DEV</th>
+              <th scope="col">Terminal </th>
+              <th scope="col">Test</th>
+              <th scope="col">Auto</th>
+              <th scope="col">UT4DEV</th>     
+              <th scope="col">Test</th>
+              <th scope="col">Auto</th>
+              <th scope="col">UT4DEV</th>
+              <th scope="col"></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td></td>
+              <td><input type="text" formControlName="TID" class="form-control"></td>
+              <td ><select formControlName="sponsor" class="custom-select"   >
+                <option *ngFor="let option of sponsorOptions" [value]="option.sponsor">{{ option.sponsor }}</option>
+              </select></td>
+
+              
+              <td style="width: 7%;">
+                <div class="form-check form-switch d-flex justify-content-center">
+                  <input class="form-check-input" type="checkbox" formControlName="GEM_Test" id="gemTestSwitch">
+                </div>
+              </td>
+              <td style="width: 10%;">
+                <div class="form-check form-switch d-flex justify-content-center">
+                  <input class="form-check-input" type="checkbox" formControlName="GEM_Auto" id="gemAutoSwitch">
+                </div>
+              </td>
+              <td style="width: 10%;">
+                <div class="form-check form-switch d-flex justify-content-center">
+                  <input  class="form-check-input" type="checkbox" formControlName="GEM_UT4DEV" id="gemUtilSwitch">
+                </div>
+              </td>
+              
+              <td> 
+                <select formControlName="Terminal_type" class="custom-select"   >
+                  <option *ngFor="let option of terminalOptions" [value]="option.terminalType">{{ option.terminalType }}</option>
+                </select>
+              </td>
+
+
+              <td>
+                <div class="form-check form-check-inline">
+                  <input class="form-check form-check-inline" type="checkbox" formControlName="DCC_Test" id="dccTestCheckbox" >
+                </div>
+              </td>
+              <td>
+                <div class="form-check form-check-inline">
+                  <input class="form-check form-check-inline" type="checkbox" formControlName="DCC_Auto" id="dccAutoCheckbox">
+                </div>
+              </td>
+              <td>
+                <div class="form-check form-check-inline">
+                  <input class="form-check form-check-inline" type="checkbox" formControlName="DCC_UT4DEV" id="dccUt4devCheckbox">
+                </div>
+              </td>
+              <td>
+                <div class="form-check form-check-inline">
+                  <input class="form-check form-check-inline" type="checkbox" formControlName="UPI_Test" id="upiTestCheckbox">
+                </div>
+              </td>
+              <td>
+                <div class="form-check form-check-inline">
+                  <input class="form-check form-check-inline" type="checkbox" formControlName="UPI_Auto" id="upiAutoCheckbox">
+                </div>
+              </td>
+              <td>
+                <div class="form-check form-check-inline">
+                  <input class="form-check form-check-inline" type="checkbox" formControlName="UPI_UT4DEV" id="upiUt4devCheckbox">
+                </div>
+              </td>
+              <td><button type="submit" class="btn btn-primary">{{button}}</button></td>
+            </tr>
+          </tbody>
+        </table>
+      </form>
+    </div>
+
+    <!--       table -->
+    <div class="form-container" style="margin-bottom: 1cm;">
+      <h2>List of TIDs</h2>
+      <table class="table table-hover">
+        <thead>
+          <tr >
+             <th scope="col" > </th>
+
+            <th scope="col" style="width: 15%;"> </th>
+            <th scope="col"> </th>
+            <th scope="col">GEM</th>
+            <th scope="col"> </th>
+            <th scope="col"> </th>
+            <th scope="col"> </th>
+            <th scope="col">DCC</th>
+            <th scope="col"> </th>     
+            <th scope="col"> </th>
+            <th scope="col">UPI</th>
+            <th scope="col"> </th>
+            <th scope="col"> </th>
+            <th scope="col"></th>
+          </tr>
+          <tr>
+             <th scope="col">TID</th>
+            <th scope="col">Sponsor</th>
+            <th scope="col" style="color: rgba(0, 0, 0, 0.6);">  Test</th>
+            <th scope="col"style="color: rgba(0, 0, 0, 0.6);">  Auto</th>
+            <th scope="col"style="color: rgba(0, 0, 0, 0.6);">UT4DEV</th>
+            <th scope="col" style="width: 10%;">Terminal</th>
+            <th scope="col"style="color: rgba(0, 0, 0, 0.6);">  Test</th>
+            <th scope="col"style="color: rgba(0, 0, 0, 0.6);">  Auto</th>
+            <th scope="col"style="color: rgba(0, 0, 0, 0.6);">  UT4DEV</th>
+            <th scope="col"style="color: rgba(0, 0, 0, 0.6);">  Test</th>
+            <th scope="col"style="color: rgba(0, 0, 0, 0.6);">  Auto</th>
+            <th scope="col"style="color: rgba(0, 0, 0, 0.6);">  UT4DEV</th>
+            <th scope="col"></th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <tbody>
+          
+          <tr *ngFor="let item of tidData">
+             <td style="vertical-align: middle;">{{ item.TID }}</td>
+            <td style="vertical-align: middle;">{{ item.sponsor }}</td>
+            <td style="vertical-align: middle;">
+              <input class="styled-checkbox" type="checkbox" [checked]="item.GEM_Test" disabled>
+            </td>
+            <td style="vertical-align: middle;">
+              <input class="styled-checkbox" type="checkbox" [checked]="item.GEM_Auto" disabled>
+            </td>
+            <td style="vertical-align: middle;">
+              <input class="styled-checkbox" type="checkbox" [checked]="item.GEM_UT4DEV" disabled>
+            </td>
+            <td style="vertical-align: middle;">{{ item.Terminal_type }}</td>
+            <td style="vertical-align: middle;">
+              <input class="styled-checkbox" type="checkbox" [checked]="item.DCC_Test" disabled>
+            </td>
+            <td style="vertical-align: middle;">
+              <input class="styled-checkbox" type="checkbox" [checked]="item.DCC_Auto" disabled>
+            </td>
+            <td style="vertical-align: middle;">
+              <input class="styled-checkbox" type="checkbox" [checked]="item.DCC_UT4DEV" disabled>
+            </td>
+            <td style="vertical-align: middle;">
+              <input class="styled-checkbox" type="checkbox" [checked]="item.UPI_Test" disabled>
+            </td>
+            <td style="vertical-align: middle;">
+              <input class="styled-checkbox" type="checkbox" [checked]="item.UPI_Auto" disabled>
+            </td>
+            <td style="vertical-align: middle;">
+              <input class="styled-checkbox" type="checkbox" [checked]="item.UPI_UT4DEV" disabled>
+            </td>
+            <td style="vertical-align: middle; width: 5%;">
+              <button (click)="openDialog(item.id_tid, getID())" class="btn">
+                <img style="width: 25px;" src="../../assets/img/delete.png">
+              </button>
+            </td>
+            <td style="vertical-align: middle; width: 5%;">
+              <button (click)="passTID(item.id_tid)" type="button" class="btn">
+                <img style="width: 25px;" src="../../assets/img/modify.png">
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<style>
+  .form-container {
+    background-color: #f8f9fa;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+  }
+
+  .form-container .form-control {
+    margin-bottom: 10px;
+  }
+
+  .table {
+    margin-top: 20px;
+  }
+
+  #searchInput {
+    margin-bottom: 10px;
+    width: 18%;
+    padding: 10px;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+  }
+</style>

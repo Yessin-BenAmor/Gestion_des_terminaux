@@ -1,0 +1,40 @@
+<!-- sign-in.component.html -->
+<!-- ======= Header ======= -->
+<header id="header" class="fixed-top d-flex align-items-center">
+    <div class="container d-flex align-items-center">
+      <div class="logo me-auto">
+        <h1><a routerLink="">Terminal Manager</a></h1>
+      </div>
+      <nav id="navbar" class="navbar order-last order-lg-0">
+        <nav id="navbar" class="navbar order-last order-lg-0">
+          <ul>
+  
+            <li>
+              <a class="nav-link scrollto"  routerLinkActive="active"  [routerLink]="['/profile', username]">TID</a>
+            </li>  <li>
+              <a class="nav-link scrollto"  routerLinkActive="active"  routerLink ="/TerminalList">Terminal's List </a>
+            </li>
+            <li><a class="nav-link scrollto " routerLinkActive="active"  routerLink ="/Sponsor"   >Sponsors</a></li>
+            <li><a class="nav-link scrollto " routerLinkActive="active"  routerLink ="/TerminalTypes" style="margin-right:30px ;" >Terminal's types</a></li>
+             
+           </ul>
+           <ul>
+          <li style="margin-bottom : 20px"><div class="text-center mt-4">
+            <button class="btn btn-danger" (click)="signOut()">
+              <img style="width: 30px; display: flex;   " src="..\..\assets\img\logout.png">
+            </button>
+          </div></li>
+        </ul>
+          <i class="bi bi-list mobile-nav-toggle"></i>
+        </nav>
+        
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav>
+      <div class="header-social-links d-flex align-items-center">
+        <a href="https://x.com/telnetholding" class="twitter"><i class="bi bi-twitter"></i></a>
+        <a href="https://www.facebook.com/telnet.holding.tn" class="facebook"><i class="bi bi-facebook"></i></a>
+        <a href="https://www.linkedin.com/in/telnet-tunisie-bb5883140" class="linkedin"><i class="bi bi-linkedin"></i></a>
+      </div>
+    </div>
+  </header><!-- End Header -->
+  

@@ -1,0 +1,15 @@
+.form-container {
+    background-color: #f0f0f0; /* Grey background */
+    padding: 20px; /* Adjust padding to fit the form */
+    border-radius: 8px; /* Optional: for rounded corners */
+    width: fit-content; /* Adjust width to fit content */
+    margin: 0 auto; /* Center align if needed */
+  }
+  .form-control {
+    width: 100%; /* Ensure input takes full width of the container */
+  }
+  
+  .btn {
+    margin-top: 10px; /* Add margin if needed for spacing between input and button */
+  }
+  
