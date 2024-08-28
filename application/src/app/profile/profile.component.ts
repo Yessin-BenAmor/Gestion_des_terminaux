@@ -23,6 +23,7 @@ import { DialogExampleComponent } from '../dialog-example/dialog-example.compone
  import { TerminalTypeComponent } from '../terminal-type/terminal-type.component';
 import {RouterOutlet,RouterLink,RouterLinkActive} from '@angular/router';
 import { HeaderComponent } from "../header/header.component";
+import { TerminalTypesCrudService } from '../services/terminal-types-crud.service';
  @Component({
   selector: 'app-profile',
   standalone: true,
@@ -49,7 +50,7 @@ export class ProfileComponent implements OnInit {
   header = "Add a new TID";
   terminalOptions: any[] = [];
    sponsorOptions: any[] = [];
-   constructor(public sponsorService:SponsorCrudService, public terminalService:TerminalCrudService, public dialog:MatDialog,private _snackBar: MatSnackBar,private fb: FormBuilder, private authService: AuthService, private router: Router, private tidService : TIDCRUDService) {
+   constructor(public sponsorService:SponsorCrudService, public terminalTypeService:TerminalTypesCrudService, public dialog:MatDialog,private _snackBar: MatSnackBar,private fb: FormBuilder, private authService: AuthService, private router: Router, private tidService : TIDCRUDService) {
      this.username = localStorage.getItem('usernameValuemlsignin');
  
     this.tidForm = this.fb.group({
@@ -88,7 +89,7 @@ export class ProfileComponent implements OnInit {
     this.sponsorService.getSponsors().subscribe((options: any[]) => {
       this.sponsorOptions = options;
     });
-    this.terminalService.getTerminal().subscribe(options => {
+    this.terminalTypeService.getTerminalTypes().subscribe(options => {
       this.terminalOptions = options;
     });
    const id = this.getID();
